@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/12 15:16:31 by okamotoyayo      ###   ########.fr       */
+/*   Created: 2025/05/12 15:12:53 by okamotoyayo       #+#    #+#             */
+/*   Updated: 2025/05/12 15:15:13 by okamotoyayo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
-int	main(void)
-{
-	void	*mlx;
-	void	*win;
+# include <stdio.h>
+# include <stdlib.h>
+# include "libft.h"
+# include "ft_printf.h"
+# include "mlx.h"
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 600, "Hello world!");
-	mlx_loop(mlx);
-}
+#endif
