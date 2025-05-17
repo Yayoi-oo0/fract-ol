@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+         #
+#    By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/05/12 16:10:03 by okamotoyayo      ###   ########.fr        #
+#    Updated: 2025/05/17 22:43:28 by oyayoi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,23 +20,25 @@ LIBFT_DIR = libft/
 PRINTF_DIR = printf/
 LIBFTPRINTF = libftprintf.a
 
-INCLUDE = -I include/ -I $(LIBFT_DIR)includes/
+INCLUDE = -I include/ -I $(LIBFT_DIR)includes/ -I $(MLX_DIR)
 
 MLX_DIR = minilibx-linux
 MLX_URL = https://cdn.intra.42.fr/document/document/32190/minilibx-linux.tgz
 MLX_TAR = minilibx-linux.tgz
-MLX_FLAGS = -L/opt/X11/lib -lX11 -lXext -L$(MLX_DIR) -lm -lmlx
-MLX 	= $(MLX_DIR)/libmlx.a $(MLX_DIR)/libmlx_Linux.a
+# MLX_FLAGS = -L/opt/X11/lib -lX11 -lXext -L$(MLX_DIR) -lm -lmlx
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+# MLX 	= $(MLX_DIR)/libmlx.a $(MLX_DIR)/libmlx_Linux.a
+MLX 	= $(MLX_DIR)/libmlx.a
 
 SRC_FILES = main.c \
 
 OBJ_FILES	= $(addprefix $(OBJS_DIR), $(SRC_FILES:.c=.o))
 
-all: $(NAME)
+all: $(MLX) $(NAME)
 
 $(NAME): $(OBJS_DIR) $(OBJ_FILES)
 	@$(MAKE) -C $(LIBFT_DIR)/src/$(PRINTF_DIR)/
-	@$(CC) -g $(CFLAGS) $(OBJ_FILES) -o $(NAME) -L$(LIBFT_DIR)/src/$(PRINTF_DIR)/ -lftprintf
+	@$(CC) -g $(CFLAGS) $(OBJ_FILES) -o $(NAME) -L$(LIBFT_DIR)/src/$(PRINTF_DIR)/ -lftprintf $(MLX_FLAGS)
 
 
 $(OBJS_DIR):
@@ -45,10 +47,12 @@ $(OBJS_DIR):
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
 
+$(MLX): $(MLX_TAR)
+	$(MAKE) -j4 -C $(MLX_DIR)
+
 $(MLX_TAR):
 	curl -O $(MLX_URL)
 	@tar -xzf $(MLX_TAR)
-	$(MAKE) -j4 -C $(MLX_DIR)
 
 
 
