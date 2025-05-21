@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/17 22:57:27 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/05/21 19:00:08 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,14 @@ int	main(void)
 	}
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
+}
+
+int	calc_mandelbrot(x, y)
+{
+	double	x;
+	double	y;
+
+	x = 0.0;
+	y = 0.0;
+	while (x * x + y * y <= 4.0)
 }
