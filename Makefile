@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+         #
+#    By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/05/17 23:09:15 by okamotoyayo      ###   ########.fr        #
+#    Updated: 2025/05/23 16:52:33 by oyayoi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,15 +23,15 @@ LIBFTPRINTF = libftprintf.a
 INCLUDE = -I include/ -I $(LIBFT_DIR)includes/ -I $(MLX_DIR)
 
 MLX_DIR = minilibx-linux
-MLX_URL = https://cdn.intra.42.fr/document/document/32190/minilibx-linux.tgz
+MLX_URL = https://cdn.intra.42.fr/document/document/34602/minilibx-linux.tgz
 MLX_TAR = minilibx-linux.tgz
 #for_macOS
-MLX_FLAGS = -L/opt/X11/lib -lX11 -lXext -L$(MLX_DIR) -lm -lmlx
-MLX 	= $(MLX_DIR)/libmlx.a $(MLX_DIR)/libmlx_Linux.a
+# MLX_FLAGS = -L/opt/X11/lib -lX11 -lXext -L$(MLX_DIR) -lm -lmlx
+# MLX 	= $(MLX_DIR)/libmlx.a $(MLX_DIR)/libmlx_Linux.a
 
 #for_Linux
-# MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
-# MLX 	= $(MLX_DIR)/libmlx.a
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+MLX 	= $(MLX_DIR)/libmlx.a
 
 SRC_FILES = main.c \
 
@@ -59,9 +59,16 @@ $(MLX_TAR):
 
 
 
+# clean:
+# 	@$(MAKE) -C $(LIBFT_DIR)/src/$(PRINTF_DIR) clean
+# 	@$(MAKE) -C $(MLX_DIR) clean
+# 	@rm -rf $(OBJS_DIR)
+
 clean:
 	@$(MAKE) -C $(LIBFT_DIR)/src/$(PRINTF_DIR) clean
-	@$(MAKE) -C $(MLX_DIR) clean
+	@if [ -d "$(MLX_DIR)" ]; then \
+	    $(MAKE) -C $(MLX_DIR) clean; \
+	fi
 	@rm -rf $(OBJS_DIR)
 
 fclean:
