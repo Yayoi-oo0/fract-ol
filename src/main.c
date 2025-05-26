@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/26 17:12:18 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/05/26 17:21:02 by okamotoyayo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ int	main(void)
 {
 	t_data	img;
 
-	img.mlx = mlx_init();
-	img.mlx_win = mlx_new_window(img.mlx, WIDTH, HEIGHT, "Hello world!");
-	img.img = NULL;
-	img.zoom = 300.0;
+	init_data(&img);
 	draw_fractal(&img);
 	mlx_key_hook(img.mlx_win, key_event, &img);
 	mlx_mouse_hook(img.mlx_win, mouse_event, &img);

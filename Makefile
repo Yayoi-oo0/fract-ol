@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+         #
+#    By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/05/26 15:29:05 by oyayoi           ###   ########.fr        #
+#    Updated: 2025/05/26 17:19:46 by okamotoyayo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ MLX 	= $(MLX_DIR)/libmlx.a
 
 SRC_FILES = main.c \
 			mouse_and_key.c \
+			init.c \
 
 OBJ_FILES	= $(addprefix $(OBJS_DIR), $(SRC_FILES:.c=.o))
 
