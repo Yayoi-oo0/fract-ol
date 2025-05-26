@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:12:53 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/24 16:39:04 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/05/26 15:15:53 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_data
 	int		endian;
 	void	*mlx;
 	void	*mlx_win;
+	double	zoom;
 }	t_data;
 
 # define WIDTH 1920
@@ -35,6 +36,8 @@ typedef struct s_data
 # define MAX_ITER 100
 
 # define ESC_KEY 0xFF1B
+# define MOUSE_DOWN 4
+# define MOUSE_UP 5
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		calc_mandelbrot(double x0, double y0);

@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/24 16:44:27 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/05/26 15:13:33 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,19 @@ int	key_event(int keycode, t_data *param)
 {
 	if (keycode == ESC_KEY)
 		close_window(param);
+	return (0);
+}
+
+int	mouse_event(int button, int x, int y, t_data *param)
+{
+	if (button == MOUSE_DOWN)
+	{
+		// Handle mouse down event
+	}
+	else if (button == MOUSE_UP)
+	{
+		// Handle mouse up event
+	}
 	return (0);
 }
 
