@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:12:53 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/26 15:15:53 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/05/26 16:06:20 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		calc_mandelbrot(double x0, double y0);
 int		close_window(t_data *param);
 int		key_event(int keycode, t_data *param);
+int		mouse_event(int button, int x, int y, t_data *param);
+void	draw_fractal(t_data *img);
 
 #endif

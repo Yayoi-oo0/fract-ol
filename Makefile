@@ -6,7 +6,7 @@
 #    By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/05/23 16:52:33 by oyayoi           ###   ########.fr        #
+#    Updated: 2025/05/26 15:29:05 by oyayoi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 MLX 	= $(MLX_DIR)/libmlx.a
 
 SRC_FILES = main.c \
+			mouse_and_key.c \
 
 OBJ_FILES	= $(addprefix $(OBJS_DIR), $(SRC_FILES:.c=.o))
 

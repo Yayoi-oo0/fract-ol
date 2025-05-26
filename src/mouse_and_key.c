@@ -3,10 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_and_key.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
+/*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 15:25:40 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/26 15:25:41 by okamotoyayo      ###   ########.fr       */
+/*   Updated: 2025/05/26 17:09:30 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fractol.h"
+
+int	key_event(int keycode, t_data *param)
+{
+	if (keycode == ESC_KEY)
+		close_window(param);
+	return (0);
+}
+
+int	mouse_event(int button, int x, int y, t_data *param)
+{
+	(void)x;
+	(void)y;
+	if (button == MOUSE_DOWN)
+		param->zoom *= 1.05;
+	else if (button == MOUSE_UP)
+		param->zoom *= 0.95;
+	draw_fractal(param);
+	return (0);
+}

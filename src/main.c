@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/26 15:13:33 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/05/26 17:12:18 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,60 +23,52 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 int	main(void)
 {
 	t_data	img;
-	int		i;
-	int		j;
-	double	scale;
-	int		color;
-
-	i = 0.0;
-	j = 0.0;
-	scale = 0.004;
 
 	img.mlx = mlx_init();
 	img.mlx_win = mlx_new_window(img.mlx, WIDTH, HEIGHT, "Hello world!");
-	img.img = mlx_new_image(img.mlx, WIDTH, HEIGHT);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	while (i < WIDTH)
-	{
-		j = 0;
-		while (j < HEIGHT)
-		{
-			color = calc_mandelbrot((i - WIDTH / 2) * scale, (j - HEIGHT / 2) * scale);
-			if (color > 0)
-				my_mlx_pixel_put(&img, i, j, 0x00FFFFFF - (color * 0x00FCBE11));
-			j++;
-		}
-		i++;
-	}
-	mlx_put_image_to_window(img.mlx, img.mlx_win, img.img, 0, 0);
+	img.img = NULL;
+	img.zoom = 300.0;
+	draw_fractal(&img);
 	mlx_key_hook(img.mlx_win, key_event, &img);
+	mlx_mouse_hook(img.mlx_win, mouse_event, &img);
 	mlx_hook(img.mlx_win, 17, 0, close_window, &img);
 	mlx_loop(img.mlx);
 }
 
-int	key_event(int keycode, t_data *param)
+void	draw_fractal(t_data *img)
 {
-	if (keycode == ESC_KEY)
-		close_window(param);
-	return (0);
-}
+	int		x;
+	int		y;
+	int		color;
 
-int	mouse_event(int button, int x, int y, t_data *param)
-{
-	if (button == MOUSE_DOWN)
+	y = 0;
+	if (img->img)
+		mlx_destroy_image(img->mlx, img->img);
+	img->img = mlx_new_image(img->mlx, WIDTH, HEIGHT);
+	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
+	while (y < HEIGHT)
 	{
-		// Handle mouse down event
+		x = 0;
+		while (x < WIDTH)
+		{
+			color = calc_mandelbrot((x - WIDTH / 2) / img->zoom, (y - HEIGHT / 2) / img->zoom);
+			if (color > 0)
+				my_mlx_pixel_put(img, x, y, 0x00FFFFFF - (color * 0x00FCBE11));
+			x++;
+		}
+		y++;
 	}
-	else if (button == MOUSE_UP)
-	{
-		// Handle mouse up event
-	}
-	return (0);
+	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
 }
 
 int	close_window(t_data *param)
 {
-	mlx_destroy_window(param->mlx, param->mlx_win);
+	if (param->img)
+		mlx_destroy_image(param->mlx, param->img);
+	if (param->mlx_win)
+		mlx_destroy_window(param->mlx, param->mlx_win);
+	if (param->mlx)
+		free(param->mlx);
 	exit(0);
 }
 
