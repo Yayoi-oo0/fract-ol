@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
+/*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/26 17:21:02 by okamotoyayo      ###   ########.fr       */
+/*   Updated: 2025/05/26 18:02:28 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,24 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_data	img;
 
-	init_data(&img);
-	draw_fractal(&img);
-	mlx_key_hook(img.mlx_win, key_event, &img);
-	mlx_mouse_hook(img.mlx_win, mouse_event, &img);
-	mlx_hook(img.mlx_win, 17, 0, close_window, &img);
-	mlx_loop(img.mlx);
+	if ((argc == 2 && ft_strncmp(argv[1], "mandelbrot", 10) == 0 && ft_strlen(argv[1]) == 10) || (argc == 4 && ft_strncmp(argv[1], "julia", 5) && ft_strlen(argv[1]) == 5))
+	{
+		init_data(&img);
+		draw_fractal(&img);
+		mlx_key_hook(img.mlx_win, key_event, &img);
+		mlx_mouse_hook(img.mlx_win, mouse_event, &img);
+		mlx_hook(img.mlx_win, 17, 0, close_window, &img);
+		mlx_loop(img.mlx);
+	}
+	else
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	draw_fractal(t_data *img)

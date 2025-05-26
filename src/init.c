@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
+/*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:15:36 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/26 17:18:30 by okamotoyayo      ###   ########.fr       */
+/*   Updated: 2025/05/26 18:05:58 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	init_data(t_data *data)
 		ft_putstr_fd("Error: mlx_new_window failed\n", 2);
 		exit(EXIT_FAILURE);
 	}
+	// data->img = NULL;
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
 	if (!data->img)
 	{
