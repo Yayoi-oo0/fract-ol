@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/26 18:02:28 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/05/26 22:57:23 by okamotoyayo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	main(int argc, char **argv)
 {
 	t_data	img;
 
-	if ((argc == 2 && ft_strncmp(argv[1], "mandelbrot", 10) == 0 && ft_strlen(argv[1]) == 10) || (argc == 4 && ft_strncmp(argv[1], "julia", 5) && ft_strlen(argv[1]) == 5))
+	if ((argc == 2 && ft_strncmp(argv[1], "mandelbrot", 10) == 0
+			&& ft_strlen(argv[1]) == 10) || (argc == 4 && ft_strncmp(argv[1],
+				"julia", 5) && ft_strlen(argv[1]) == 5))
 	{
 		init_data(&img);
 		draw_fractal(&img);
@@ -42,21 +44,23 @@ int	main(int argc, char **argv)
 
 void	draw_fractal(t_data *img)
 {
-	int		x;
-	int		y;
-	int		color;
+	int	x;
+	int	y;
+	int	color;
 
 	y = 0;
 	if (img->img)
 		mlx_destroy_image(img->mlx, img->img);
 	img->img = mlx_new_image(img->mlx, WIDTH, HEIGHT);
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
+	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
+			&img->line_length, &img->endian);
 	while (y < HEIGHT)
 	{
 		x = 0;
 		while (x < WIDTH)
 		{
-			color = calc_mandelbrot((x - WIDTH / 2) / img->zoom, (y - HEIGHT / 2) / img->zoom);
+			color = calc_mandelbrot((x - WIDTH / 2) / img->zoom, (y - HEIGHT
+						/ 2) / img->zoom);
 			if (color > 0)
 				my_mlx_pixel_put(img, x, y, 0x00FFFFFF - (color * 0x00FCBE11));
 			x++;
