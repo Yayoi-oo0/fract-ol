@@ -6,7 +6,7 @@
 /*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/26 22:57:23 by okamotoyayo      ###   ########.fr       */
+/*   Updated: 2025/05/30 04:29:08 by okamotoyayo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,22 @@ int	main(int argc, char **argv)
 
 void	draw_fractal(t_data *img)
 {
-	int	x;
-	int	y;
-	int	color;
-
-	y = 0;
 	if (img->img)
 		mlx_destroy_image(img->mlx, img->img);
 	img->img = mlx_new_image(img->mlx, WIDTH, HEIGHT);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
+	render_mandelbrot(img);
+	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
+}
+
+void	render_mandelbrot(t_data *img)
+{
+	int	x;
+	int	y;
+	int	color;
+
+	y = 0;
 	while (y < HEIGHT)
 	{
 		x = 0;
@@ -67,7 +73,6 @@ void	draw_fractal(t_data *img)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
 }
 
 int	close_window(t_data *param)
