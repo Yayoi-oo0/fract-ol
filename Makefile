@@ -6,7 +6,7 @@
 #    By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/05/30 03:49:45 by okamotoyayo      ###   ########.fr        #
+#    Updated: 2025/05/30 15:24:47 by okamotoyayo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ MLX 	= $(MLX_DIR)/libmlx.a $(MLX_DIR)/libmlx_Linux.a
 SRC_FILES = main.c \
 			mouse_and_key.c \
 			init.c \
+			mandelbrot.c \
 
 OBJ_FILES	= $(addprefix $(OBJS_DIR), $(SRC_FILES:.c=.o))
 

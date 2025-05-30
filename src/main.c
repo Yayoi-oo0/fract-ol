@@ -6,7 +6,7 @@
 /*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/30 04:29:08 by okamotoyayo      ###   ########.fr       */
+/*   Updated: 2025/05/30 15:24:29 by okamotoyayo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 			&& ft_strlen(argv[1]) == 10) || (argc == 4 && ft_strncmp(argv[1],
 				"julia", 5) && ft_strlen(argv[1]) == 5))
 	{
+		set_fractal_type(&img, argv[1]);
 		init_data(&img);
 		draw_fractal(&img);
 		mlx_key_hook(img.mlx_win, key_event, &img);
@@ -40,6 +41,12 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
 	}
+	return (0);
+}
+
+void	set_fractal_type(t_data *img, char *argv)
+{
+	img->name = argv;
 }
 
 void	draw_fractal(t_data *img)
@@ -49,30 +56,9 @@ void	draw_fractal(t_data *img)
 	img->img = mlx_new_image(img->mlx, WIDTH, HEIGHT);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
-	render_mandelbrot(img);
+	if (ft_strncmp(img->name, "mandelbrot", 10) == 0)
+		render_mandelbrot(img);
 	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
-}
-
-void	render_mandelbrot(t_data *img)
-{
-	int	x;
-	int	y;
-	int	color;
-
-	y = 0;
-	while (y < HEIGHT)
-	{
-		x = 0;
-		while (x < WIDTH)
-		{
-			color = calc_mandelbrot((x - WIDTH / 2) / img->zoom, (y - HEIGHT
-						/ 2) / img->zoom);
-			if (color > 0)
-				my_mlx_pixel_put(img, x, y, 0x00FFFFFF - (color * 0x00FCBE11));
-			x++;
-		}
-		y++;
-	}
 }
 
 int	close_window(t_data *param)
@@ -84,27 +70,4 @@ int	close_window(t_data *param)
 	if (param->mlx)
 		free(param->mlx);
 	exit(0);
-}
-
-int	calc_mandelbrot(double x0, double y0)
-{
-	double	x;
-	double	y;
-	double	x_temp;
-	int		iter;
-
-	x = 0.0;
-	y = 0.0;
-	iter = 0;
-	while (x * x + y * y <= 2.0 * 2.0 && iter < MAX_ITER)
-	{
-		x_temp = x * x - y * y + x0;
-		y = 2 * x * y + y0;
-		x = x_temp;
-		iter++;
-	}
-	if (iter < MAX_ITER)
-		return (iter);
-	else
-		return (0);
 }
