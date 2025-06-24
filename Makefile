@@ -6,7 +6,7 @@
 #    By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/05/30 15:24:47 by okamotoyayo      ###   ########.fr        #
+#    Updated: 2025/06/24 23:04:04 by okamotoyayo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRC_FILES = main.c \
 			mouse_and_key.c \
 			init.c \
 			mandelbrot.c \
+			ft_atof.c \
 
 OBJ_FILES	= $(addprefix $(OBJS_DIR), $(SRC_FILES:.c=.o))
 

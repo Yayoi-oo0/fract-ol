@@ -6,7 +6,7 @@
 /*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:12:53 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/30 15:19:25 by okamotoyayo      ###   ########.fr       */
+/*   Updated: 2025/06/24 23:03:46 by okamotoyayo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,9 @@ int		mouse_event(int button, int x, int y, t_data *param);
 
 // init.c
 void	init_data(t_data *data);
+
+// ft_atof.c
+double	ft_atof(const char *str);
+double	ft_strtod(const char *str, char **endptr);
 
 #endif
