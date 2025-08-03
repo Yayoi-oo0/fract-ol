@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+         #
+#    By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/06/24 23:04:04 by okamotoyayo      ###   ########.fr        #
+#    Updated: 2025/08/03 20:16:46 by oyayoi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,15 +23,15 @@ LIBFTPRINTF = libftprintf.a
 INCLUDE = -I include/ -I $(LIBFT_DIR)includes/ -I $(MLX_DIR)
 
 MLX_DIR = minilibx-linux
-MLX_URL = https://cdn.intra.42.fr/document/document/34602/minilibx-linux.tgz
+MLX_URL = https://cdn.intra.42.fr/document/document/35299/minilibx-linux.tgz
 MLX_TAR = minilibx-linux.tgz
-#for_macOS
-MLX_FLAGS = -L/opt/X11/lib -lX11 -lXext -L$(MLX_DIR) -lm -lmlx
-MLX 	= $(MLX_DIR)/libmlx.a $(MLX_DIR)/libmlx_Linux.a
+# #for_macOS
+# MLX_FLAGS = -L/opt/X11/lib -lX11 -lXext -L$(MLX_DIR) -lm -lmlx
+# MLX 	= $(MLX_DIR)/libmlx.a $(MLX_DIR)/libmlx_Linux.a
 
-#for_Linux
-# MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
-# MLX 	= $(MLX_DIR)/libmlx.a
+# for_Linux
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+MLX 	= $(MLX_DIR)/libmlx.a
 
 SRC_FILES = main.c \
 			mouse_and_key.c \

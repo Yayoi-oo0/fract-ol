@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
+/*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:12:53 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/06/24 23:03:46 by okamotoyayo      ###   ########.fr       */
+/*   Updated: 2025/08/03 19:34:03 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,22 @@ typedef struct s_data
 # define MOUSE_UP 5
 
 //main.c
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		calc_mandelbrot(double x0, double y0);
-int		close_window(t_data *param);
-void	draw_fractal(t_data *img);
-void	render_mandelbrot(t_data *img);
-void	set_fractal_type(t_data *img, char *argv);
+void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int			calc_mandelbrot(double x0, double y0);
+int			close_window(t_data *param);
+void		draw_fractal(t_data *img);
+void		render_mandelbrot(t_data *img);
+void		set_fractal_type(t_data *img, char *argv);
 
 // mouse_and_key.c
-int		key_event(int keycode, t_data *param);
-int		mouse_event(int button, int x, int y, t_data *param);
+int			key_event(int keycode, t_data *param);
+int			mouse_event(int button, int x, int y, t_data *param);
 
 // init.c
-void	init_data(t_data *data);
+void		init_data(t_data *data);
 
 // ft_atof.c
-double	ft_atof(const char *str);
-double	ft_strtod(const char *str, char **endptr);
+int			ft_isspace(char c);
+double		ft_atof(const char *str);
 
 #endif
