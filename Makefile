@@ -6,7 +6,7 @@
 #    By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/08/03 20:16:46 by oyayoi           ###   ########.fr        #
+#    Updated: 2025/09/08 16:15:41 by oyayoi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIBFTPRINTF = libftprintf.a
 INCLUDE = -I include/ -I $(LIBFT_DIR)includes/ -I $(MLX_DIR)
 
 MLX_DIR = minilibx-linux
-MLX_URL = https://cdn.intra.42.fr/document/document/35299/minilibx-linux.tgz
+MLX_URL = https://cdn.intra.42.fr/document/document/38156/minilibx-linux.tgz
 MLX_TAR = minilibx-linux.tgz
 # #for_macOS
 # MLX_FLAGS = -L/opt/X11/lib -lX11 -lXext -L$(MLX_DIR) -lm -lmlx
@@ -37,6 +37,7 @@ SRC_FILES = main.c \
 			mouse_and_key.c \
 			init.c \
 			mandelbrot.c \
+			julia.c \
 			ft_atof.c \
 
 OBJ_FILES	= $(addprefix $(OBJS_DIR), $(SRC_FILES:.c=.o))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
+/*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/05/30 23:42:12 by okamotoyayo      ###   ########.fr       */
+/*   Updated: 2025/09/08 16:14:57 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	draw_fractal(t_data *img)
 			&img->line_length, &img->endian);
 	if (ft_strncmp(img->name, "mandelbrot", 10) == 0)
 		render_mandelbrot(img);
+	if (ft_strncmp(img->name, "julia", 10) == 0)
+		render_julia(img);
 	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
 }
 
