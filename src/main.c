@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/08 16:14:57 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/08 18:03:20 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	main(int argc, char **argv)
 
 	if ((argc == 2 && ft_strncmp(argv[1], "mandelbrot", 10) == 0
 			&& ft_strlen(argv[1]) == 10) || (argc == 4 && ft_strncmp(argv[1],
-				"julia", 5) && ft_strlen(argv[1]) == 5))
+				"julia", 5) == 0 && ft_strlen(argv[1]) == 5))
 	{
-		set_fractal_type(&img, argv[1]);
+		set_fractal_type(&img, argv);
 		init_data(&img);
 		draw_fractal(&img);
 		mlx_key_hook(img.mlx_win, key_event, &img);
@@ -38,15 +38,28 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_putstr_fd("Error: Usage:./fractol mandelbrot ./fractol julia\n", 2);
+		ft_putstr_fd("Error: Usage:./fractol mandelbrot ./fractol julia <r> <i>\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	return (0);
 }
 
-void	set_fractal_type(t_data *img, char *argv)
+void	set_fractal_type(t_data *img, char **argv)
 {
-	img->name = argv;
+	img->name = argv[1];
+	if (ft_strncmp(img->name, "mandelbrot", 10) == 0)
+		img->zoom = 300.0;
+	else if (ft_strncmp(img->name, "julia", 10) == 0)
+	{
+		img->zoom = 300.0;
+		img->julia_a = ft_atof(argv[2]);
+		img->julia_b = ft_atof(argv[3]);
+	}
+	else
+	{
+		ft_putstr_fd("Error: Usage:./fractol mandelbrot ./fractol julia\n", 2);
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	draw_fractal(t_data *img)

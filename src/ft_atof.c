@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 23:02:34 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/08/03 20:17:20 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/08 17:52:45 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	frag_parse_fraction(double *number, char **p, int *e);
 static void	handle_error(void);
 static int	frag_parse_sign(char **p);
 
-double	ft_atof(const char *str)
+double	ft_atof(char *str)
 {
 	double	number;
 	int		e;

@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:12:53 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/08/03 19:34:03 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/08 17:56:36 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_data
 	void	*mlx_win;
 	double	zoom;
 	char	*name;
+	double	julia_a;
+	double	julia_b;
 }	t_data;
 
 # define WIDTH 1920
@@ -46,7 +48,7 @@ int			calc_mandelbrot(double x0, double y0);
 int			close_window(t_data *param);
 void		draw_fractal(t_data *img);
 void		render_mandelbrot(t_data *img);
-void		set_fractal_type(t_data *img, char *argv);
+void		set_fractal_type(t_data *img, char **argv);
 
 // mouse_and_key.c
 int			key_event(int keycode, t_data *param);
@@ -56,7 +58,14 @@ int			mouse_event(int button, int x, int y, t_data *param);
 void		init_data(t_data *data);
 
 // ft_atof.c
-int			ft_isspace(char c);
-double		ft_atof(const char *str);
+double		ft_atof(char *str);
+
+// julia.c
+void		render_julia(t_data *img);
+int			calc_julia(double x0, double y0, double a, double b);
+
+// mandelbrot.c
+void		render_mandelbrot(t_data *img);
+int			calc_mandelbrot(double x0, double y0);
 
 #endif
