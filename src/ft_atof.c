@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 23:02:34 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/08 17:52:45 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/14 18:00:22 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ double	ft_atof(char *str)
 	negative = frag_parse_sign(&p);
 	frag_parse_int(&number, &p);
 	frag_parse_fraction(&number, &p, &e);
+	if (*p != '\0')
+		handle_error();
 	while (e < 0)
 	{
 		number *= 0.1;

@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:12:53 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/08 17:56:36 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/14 18:07:18 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_data
 	char	*name;
 	double	julia_a;
 	double	julia_b;
+	int		color;
 }	t_data;
 
 # define WIDTH 1920

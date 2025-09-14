@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/08 18:03:20 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/14 17:42:34 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_putstr_fd("Error: Usage:./fractol mandelbrot ./fractol julia <r> <i>\n", 2);
+		ft_putstr_fd("Error: ./fractol mandelbrot ./fractol julia <r> <i>\n",
+			2);
 		exit(EXIT_FAILURE);
 	}
 	return (0);
@@ -57,7 +58,8 @@ void	set_fractal_type(t_data *img, char **argv)
 	}
 	else
 	{
-		ft_putstr_fd("Error: Usage:./fractol mandelbrot ./fractol julia\n", 2);
+		ft_putstr_fd("Error: ./fractol mandelbrot ./fractol julia <r> <i>\n",
+			2);
 		exit(EXIT_FAILURE);
 	}
 }
