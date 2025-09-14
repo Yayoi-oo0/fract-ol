@@ -6,7 +6,7 @@
 #    By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/09/08 16:15:41 by oyayoi           ###   ########.fr        #
+#    Updated: 2025/09/14 18:39:24 by oyayoi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC_FILES = main.c \
 			mandelbrot.c \
 			julia.c \
 			ft_atof.c \
+			calc_color.c \
 
 OBJ_FILES	= $(addprefix $(OBJS_DIR), $(SRC_FILES:.c=.o))
 

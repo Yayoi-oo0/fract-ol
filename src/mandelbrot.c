@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:23:35 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/14 18:09:49 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/14 19:17:03 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	render_mandelbrot(t_data *img)
 	int	x;
 	int	y;
 	int	iter;
+	int	color;
 
 	y = 0;
 	while (y < HEIGHT)
@@ -24,10 +25,13 @@ void	render_mandelbrot(t_data *img)
 		x = 0;
 		while (x < WIDTH)
 		{
-			iter = calc_mandelbrot((x - WIDTH / 2) / img->zoom, (y - HEIGHT
-						/ 2) / img->zoom);
+			iter = calc_mandelbrot((x - WIDTH / 2 + img->offset_x) / img->zoom,
+					(y - HEIGHT / 2 + img->offset_y) / img->zoom);
 			if (iter > 0)
-				my_mlx_pixel_put(img, x, y, 0x00FFFFFF - (img->color * iter));
+			{
+				color = get_color_from_iter(iter * 9);
+				my_mlx_pixel_put(img, x, y, color);
+			}
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:15:36 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/14 18:07:51 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/14 18:41:30 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,4 @@ void	init_data(t_data *data)
 	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
 			&data->line_length, &data->endian);
 	data->zoom = 300.0;
-	data->color = 0xFCBE11;
 }

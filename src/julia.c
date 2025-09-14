@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 16:38:21 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/14 18:10:29 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/14 18:54:23 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	render_julia(t_data *img)
 	int	x;
 	int	y;
 	int	iter;
+	int	color;
 
 	y = 0;
 	while (y < HEIGHT)
@@ -24,10 +25,14 @@ void	render_julia(t_data *img)
 		x = 0;
 		while (x < WIDTH)
 		{
-			iter = calc_julia((x - WIDTH / 2) / img->zoom, (y - HEIGHT
-						/ 2) / img->zoom, img->julia_a, img->julia_b);
+			iter = calc_julia((x - WIDTH / 2 + img->offset_x) / img->zoom, (y
+						- HEIGHT / 2 + img->offset_y) / img->zoom, img->julia_a,
+					img->julia_b);
 			if (iter > 0)
-				my_mlx_pixel_put(img, x, y, 0x00FFFFFF - (img->color * iter));
+			{
+				color = get_color_from_iter(iter * 9);
+				my_mlx_pixel_put(img, x, y, color);
+			}
 			x++;
 		}
 		y++;

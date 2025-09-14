@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:12:53 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/14 18:07:18 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/14 18:48:50 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct s_data
 	char	*name;
 	double	julia_a;
 	double	julia_b;
-	int		color;
+	double	offset_x;
+	double	offset_y;
 }	t_data;
 
 # define WIDTH 1920
@@ -40,6 +41,10 @@ typedef struct s_data
 # define MAX_ITER 100
 
 # define ESC_KEY 0xFF1B
+# define UP_KEY 0xFF52
+# define DOWN_KEY 0xFF54
+# define LEFT_KEY 0xFF51
+# define RIGHT_KEY 0xFF53
 # define MOUSE_DOWN 4
 # define MOUSE_UP 5
 
@@ -68,5 +73,8 @@ int			calc_julia(double x0, double y0, double a, double b);
 // mandelbrot.c
 void		render_mandelbrot(t_data *img);
 int			calc_mandelbrot(double x0, double y0);
+
+// calc_color.c
+int			get_color_from_iter(int iter);
 
 #endif

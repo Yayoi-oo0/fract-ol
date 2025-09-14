@@ -3,10 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   calc_color.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
+/*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 18:30:16 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/14 18:30:17 by okamotoyayo      ###   ########.fr       */
+/*   Updated: 2025/09/14 18:38:50 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fractol.h"
+
+int	get_color_from_iter(int iter)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	r = (int)((iter % 256) * (256 - (iter % 256)) / 65);
+	g = (int)(((iter + 85) % 256) * (256 - ((iter + 85) % 256)) / 65);
+	b = (int)(((iter + 170) % 256) * (256 - ((iter + 170) % 256)) / 65);
+	return ((r << 16) | (g << 8) | b);
+}
