@@ -1,0 +1,16 @@
+# Ignore OS generated files
+.DS_Store
+.vscode/
+
+# Ignore compiled files
+*.o
+*.out
+
+# Ignore swap files
+*.swp
+
+objs/
+libft/objs/
+
+libft.a
+libftprintf.a
