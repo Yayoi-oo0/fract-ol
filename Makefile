@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+         #
+#    By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 17:11:07 by okamotoyayo       #+#    #+#              #
-#    Updated: 2025/09/14 18:39:24 by oyayoi           ###   ########.fr        #
+#    Updated: 2025/09/15 22:35:14 by okamotoyayo      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

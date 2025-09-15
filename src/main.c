@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: okamotoyayoi <okamotoyayoi@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:56:07 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/15 18:08:36 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/15 22:32:01 by okamotoyayo      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int	close_window(t_data *param)
 		mlx_destroy_image(param->mlx, param->img);
 	if (param->mlx_win)
 		mlx_destroy_window(param->mlx, param->mlx_win);
+	if (param->mlx)
+		mlx_destroy_display(param->mlx);
 	if (param->mlx)
 		free(param->mlx);
 	param->mlx = NULL;
