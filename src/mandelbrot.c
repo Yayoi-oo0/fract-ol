@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 15:23:35 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/14 19:17:03 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/15 18:13:11 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	calc_mandelbrot(double x0, double y0)
 	x = 0.0;
 	y = 0.0;
 	iter = 0;
+	x_temp = 0.0;
 	while (x * x + y * y <= 2.0 * 2.0 && iter < MAX_ITER)
 	{
 		x_temp = x * x - y * y + x0;
