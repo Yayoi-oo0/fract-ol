@@ -6,7 +6,7 @@
 /*   By: oyayoi <oyayoi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 23:02:34 by okamotoyayo       #+#    #+#             */
-/*   Updated: 2025/09/14 18:00:22 by oyayoi           ###   ########.fr       */
+/*   Updated: 2025/09/15 17:49:50 by oyayoi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ double	ft_atof(char *str)
 	number = 0.0;
 	e = 0;
 	negative = 0;
-
 	p = (char *)str;
 	while (*p == ' ' || (*p >= '\t' && *p <= '\r'))
 		p++;
